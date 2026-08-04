@@ -1,10 +1,10 @@
 <template>
-  <div class="product-card">
+  <NuxtLink :to="`/shop/${product.id}`" class="product-card">
     <img v-if="product.image" :src="product.image" :alt="product.name" class="product-image" />
     <h3>{{ product.name }}</h3>
     <p class="price">{{ product.price }} грн</p>
-    <button @click="handleBuy">Придбати</button>
-  </div>
+    <button @click.prevent="handleBuy">Придбати</button>
+  </NuxtLink>
 </template>
 
 <script setup lang="ts">
@@ -30,10 +30,17 @@ function handleBuy() {
 
 <style scoped>
 .product-card {
+  display: block;
   border: 1px solid #333;
   border-radius: 8px;
   padding: 16px;
   text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s;
+}
+.product-card:hover {
+  border-color: #5599ff;
 }
 .product-image {
   width: 100%;
@@ -48,11 +55,5 @@ button {
   padding: 8px 16px;
   cursor: pointer;
   width: 100%;
-}
-
-@media (max-width: 480px) {
-  .product-card {
-    padding: 12px;
-  }
 }
 </style>

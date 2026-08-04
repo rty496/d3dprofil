@@ -13,7 +13,7 @@
 <script setup lang="ts">
 // Тимчасові дані — заміниш на свої роботи
 const works = [
-  { id: 1, title: 'Робота 1', image: '/portfolio/work1.jpg' },
+  { id: 1, title: 'Робота 1', image: '/portfolio/model1.jpg' },
   { id: 2, title: 'Робота 2', image: '/portfolio/work2.jpg' },
   { id: 3, title: 'Робота 3', image: '/portfolio/work3.jpg' }
 ]

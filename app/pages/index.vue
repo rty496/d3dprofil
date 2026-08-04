@@ -5,9 +5,7 @@
       <p>Створюю 3D-моделі, анімації та інтерактивні сцени</p>
     </header>
 
-    <PortfolioGallery />
-
-    <section class="shop">
+    <section id="shop" class="shop">
       <h2>3D-моделі на продаж</h2>
       <div class="products-grid">
         <ProductCard v-for="product in products" :key="product.id" :product="product" />
@@ -17,12 +15,7 @@
 </template>
 
 <script setup lang="ts">
-// Тимчасові товари — заміниш на реальні
-const products = [
-  { id: 'model-1', name: 'Стилізований персонаж', price: 500, image: '/shop/model1.jpg' },
-  { id: 'model-2', name: 'Low-poly локація', price: 350, image: '/shop/model2.jpg' },
-  { id: 'model-3', name: 'Реалістична зброя', price: 200, image: '/shop/model3.jpg' }
-]
+import { products } from '~/data/products'
 </script>
 
 <style scoped>
