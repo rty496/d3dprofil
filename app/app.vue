@@ -1,6 +1,7 @@
 <template>
   <div class="app-layout">
     <div class="animated-bg"></div>
+    <SplashScreen @enter="onEnter" />
     <AppHeader />
     <main>
       <NuxtPage />
@@ -10,6 +11,13 @@
 </template>
 
 <script setup>
+function onEnter() {
+  // плавно скролимо до магазину після закриття заставки
+  nextTick(() => {
+    document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth' })
+  })
+}
+
 useSeoMeta({
   title: '3D.Portfolio — 3D-розробник та магазин 3D-моделей',
   description: 'Портфоліо 3D-художника: перегляньте роботи та придбайте готові 3D-моделі — персонажі, локації, зброю та інше.',
@@ -41,7 +49,6 @@ body {
   min-height: 100vh;
 }
 
-/* Анімований фон */
 .animated-bg {
   position: fixed;
   top: 0;
@@ -59,15 +66,9 @@ body {
 }
 
 @keyframes bgMove {
-  0% {
-    background-position: 0% 0%, 100% 100%, 50% 50%;
-  }
-  50% {
-    background-position: 100% 100%, 0% 0%, 30% 70%;
-  }
-  100% {
-    background-position: 0% 0%, 100% 100%, 50% 50%;
-  }
+  0% { background-position: 0% 0%, 100% 100%, 50% 50%; }
+  50% { background-position: 100% 100%, 0% 0%, 30% 70%; }
+  100% { background-position: 0% 0%, 100% 100%, 50% 50%; }
 }
 
 main {
