@@ -37,6 +37,10 @@ useHead({
 </script>
 
 <style>
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   background: #0e0e0e;

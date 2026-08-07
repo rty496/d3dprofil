@@ -1,12 +1,10 @@
 <template>
   <div>
-    <header class="hero">
-      <h1>Привіт, я 3D-розробник</h1>
-      <p>Створюю 3D-моделі, анімації та інтерактивні сцени</p>
-    </header>
+    <AboutSection />
 
     <section id="shop" class="shop">
       <h2>3D-моделі на продаж</h2>
+      <p class="demo-note">Демонстраційні товари — замініть на власні роботи</p>
       <div class="products-grid">
         <ProductCard v-for="product in products" :key="product.id" :product="product" />
       </div>
@@ -19,9 +17,12 @@ import { products } from '~/data/products'
 </script>
 
 <style scoped>
-.hero {
+.demo-note {
   text-align: center;
-  padding: 60px 20px;
+  color: #888;
+  font-size: 0.9rem;
+  margin-top: -10px;
+  margin-bottom: 30px;
 }
 .products-grid {
   display: grid;
@@ -29,17 +30,10 @@ import { products } from '~/data/products'
   gap: 20px;
   padding: 0 20px;
 }
-
+.shop {
+  scroll-margin-top: 80px;
+}
 @media (max-width: 768px) {
-  .hero {
-    padding: 40px 16px;
-  }
-  .hero h1 {
-    font-size: 1.6rem;
-  }
-  .hero p {
-    font-size: 0.95rem;
-  }
   .products-grid {
     grid-template-columns: 1fr;
     padding: 0 16px;

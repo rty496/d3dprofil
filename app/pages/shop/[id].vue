@@ -1,4 +1,5 @@
 <template>
+
   <div v-if="product" class="product-page">
     <div class="product-main">
       <img :src="product.image" :alt="product.name" class="product-image" />
@@ -13,6 +14,12 @@
           <li v-if="product.format">Формати: {{ product.format.join(', ') }}</li>
         </ul>
 
+        <p v-if="product.attribution" class="attribution">
+          <a :href="product.attribution.url" target="_blank" rel="noopener">
+            {{ product.attribution.text }}
+          </a>
+        </p>
+
         <button class="buy-button" @click="handleBuy">Придбати за {{ product.price }} грн</button>
       </div>
     </div>
@@ -21,9 +28,10 @@
   <div v-else class="not-found">
     <p>Товар не знайдено</p>
     <NuxtLink to="/">На головну</NuxtLink>
-  </div>
-</template>
 
+  </div>
+
+</template>
 <script setup lang="ts">
 import { products } from '~/data/products'
 import { useCartStore } from '~/stores/cart'
@@ -42,7 +50,6 @@ function handleBuy() {
   router.push('/checkout')
 }
 
-// SEO для цієї конкретної сторінки товару
 useSeoMeta({
   title: () => product.value ? `${product.value.name} — 3D.Portfolio` : 'Товар не знайдено',
   description: () => product.value?.description || '',
@@ -54,6 +61,22 @@ useSeoMeta({
 </script>
 
 <style scoped>
+.attribution {
+  font-size: 0.85rem;
+  color: #777;
+  margin: 8px 0 20px;
+}
+.attribution a {
+  color: #999;
+  text-decoration: underline;
+}
+.attribution a:hover {
+  color: #ccc;
+}
+.product-image {
+  width: 100%;
+  border-radius: 12px;
+}
 .product-page {
   padding: 40px 20px;
   max-width: 900px;
@@ -63,10 +86,6 @@ useSeoMeta({
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-}
-.product-image {
-  width: 100%;
-  border-radius: 12px;
 }
 .price {
   font-size: 1.6rem;

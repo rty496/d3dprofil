@@ -6,34 +6,56 @@ export interface Product {
     description: string
     polyCount?: string
     format?: string[]
+    modelUrl?: string
+    color?: string
+    attribution?: {
+        text: string
+        url: string
+    }
 }
 
 export const products: Product[] = [
     {
-        id: 'model-1',
-        name: 'Стилізований персонаж',
+        id: 'demo-character',
+        name: 'Demo: Стилізований персонаж',
         price: 500,
-        image: '/shop/model1.jpg',
-        description: 'Низькополігональна модель персонажа у стилізованому вигляді. Готова до анімації, з чистою топологією та розгорнутою UV-картою.',
+        image: '/shop/demo-character.jpg',
+        description: 'Приклад товарної картки для 3D-моделі персонажа. Замініть зображення та опис на власну роботу — структура даних лишається тою самою.',
         polyCount: '8 500 полігонів',
-        format: ['FBX', 'OBJ', 'Blender']
+        format: ['FBX', 'OBJ', 'Blender'],
+        color: '#e63946',
+        modelUrl: '/models/character.glb',
+        attribution: {
+            text: 'Модель: Kenney.nl (CC0)',
+            url: 'https://kenney.nl/assets/blocky-characters'
+        }
     },
     {
-        id: 'model-2',
-        name: 'Low-poly локація',
+        id: 'demo-location',
+        name: 'Demo: Low-poly локація',
         price: 350,
-        image: '/shop/model2.jpg',
-        description: 'Компактна ігрова локація у low-poly стилі. Підходить для мобільних та інді-ігор, оптимізована під реальний час рендерингу.',
+        image: '/shop/demo-location.jpg',
+        description: 'Приклад картки для ігрової локації. Підходить для демонстрації того, як виглядатиме товар типу "оточення" чи "сцена".',
         polyCount: '12 000 полігонів',
-        format: ['FBX', 'GLTF']
+        format: ['FBX', 'GLTF'],
+        color: '#2a9d8f',
+        attribution: {
+            text: 'Модель: Kenney.nl (CC0)',
+            url: 'https://kenney.nl/assets/nature-kit'
+        }
     },
     {
-        id: 'model-3',
-        name: 'Реалістична зброя',
+        id: 'demo-weapon',
+        name: 'Demo: Зброя / пропс',
         price: 200,
-        image: '/shop/model3.jpg',
-        description: 'Деталізована модель зброї з PBR-текстурами 4K. Підходить для AAA-проєктів та реалістичних сцен.',
-        polyCount: '25 000 полігонів',
-        format: ['FBX', 'OBJ']
+        image: '/shop/demo-weapon.jpg',
+        description: 'Приклад картки для дрібного пропса чи зброї. Гарно демонструє, як шаблон виглядає з компактними об\'єктами.',
+        polyCount: '3 500 полігонів',
+        format: ['FBX', 'OBJ'],
+        color: '#6c757d',
+        attribution: {
+            text: 'Модель: Kenney.nl (CC0)',
+            url: 'https://kenney.nl/assets/blaster-kit'
+        }
     }
 ]

@@ -3,7 +3,7 @@
     <NuxtLink to="/" class="logo">3D.Portfolio</NuxtLink>
 
     <nav class="nav" :class="{ open: menuOpen }">
-      <a href="#portfolio" @click="menuOpen = false">Роботи</a>
+      <a href="#about" @click="menuOpen = false">Про мене</a>
       <a href="#shop" @click="menuOpen = false">Магазин</a>
       <NuxtLink to="/#contact" @click="menuOpen = false">Контакти</NuxtLink>
     </nav>

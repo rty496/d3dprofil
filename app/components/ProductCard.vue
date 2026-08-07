@@ -3,7 +3,8 @@
     <img v-if="product.image" :src="product.image" :alt="product.name" class="product-image" />
     <h3>{{ product.name }}</h3>
     <p class="price">{{ product.price }} грн</p>
-    <button @click.prevent="handleBuy">Придбати</button>
+    <p v-if="product.attribution" class="card-attribution">{{ product.attribution.text }}</p>
+
   </NuxtLink>
 </template>
 
